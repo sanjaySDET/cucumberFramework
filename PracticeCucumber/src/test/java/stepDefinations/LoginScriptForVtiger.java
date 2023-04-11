@@ -17,9 +17,15 @@ public class LoginScriptForVtiger {
 		driver.get("http://localhost:8888");
 	}
 
+	@When("User login to vtiger application with username and password")
+	public void user_login_to_vtiger_application_with_username_and_password() {
+		driver.findElement(By.name("user_name")).sendKeys("admin");
+		driver.findElement(By.name("user_password")).sendKeys("admin");
+		driver.findElement(By.id("submitButton")).click();
+	}
+	
 	@When("User login to vtiger application with username {string} and password {string}")
 	public void user_login_to_vtiger_application_with_username_and_password(String username, String password) {
-		// Write code here that turns the phrase above into concrete actions
 		driver.findElement(By.name("user_name")).sendKeys(username);
 		driver.findElement(By.name("user_password")).sendKeys(password);
 		driver.findElement(By.id("submitButton")).click();
